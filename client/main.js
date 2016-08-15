@@ -1,8 +1,9 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
-import './main.html';
 import {Tasks} from '../imports/Api/tasks.js';
+import './main.html';
+import '../imports/ui/task.js'
 
 
 Template.hello.onCreated(function helloOnCreated() {
