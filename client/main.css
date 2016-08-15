@@ -1,0 +1,31 @@
+/* CSS declarations go here */
+header{
+	text-align:center;
+}
+
+ul{
+	list-style-position:inside;
+	text-align:center;
+}
+
+body{
+	text-align:center;
+}
+.button{
+  background-color: red;
+	text-align:center;
+	transition: all 0.5s;
+  cursor: pointer;
+	width:75px;
+	height:25px;
+	position:relative;
+	left:38px;
+}
+
+
+.button:hover {
+	text-align:center;
+	background-color:white;
+	border-color:blue;
+}
+

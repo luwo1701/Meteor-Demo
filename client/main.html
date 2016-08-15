@@ -1,0 +1,42 @@
+<head>
+  <title>MeteorDemo</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>To-do List</h1>
+    	
+			<form class= "new-task">
+				<input type="text" name="text" placeholder= "Add a new task here"/>
+			</form>
+		</header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="task">
+  <li>{{text}}</li>
+</template>
+
+
+<template name="hello">
+
+	<p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="info">
+  <h2>Learn Meteor!</h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+  </ul>
+</template>
+
