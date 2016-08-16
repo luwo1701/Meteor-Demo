@@ -1,10 +1,14 @@
 import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 import {Tasks} from '../imports/Api/tasks.js';
 import './main.html';
-import '../imports/ui/task.js'
+import '../imports/ui/task.js';
 
+Template.body.onCreated(function bodyOnCreated(){
+	this.state = new ReactiveDict();
+});
 
 Template.hello.onCreated(function helloOnCreated() {
   // counter starts at 0
@@ -27,6 +31,12 @@ Template.hello.events({
 
 Template.body.helpers({
 	tasks() {
+		const instance = Template.instance();
+
+		//if hide is checked filter tasks
+		if (instance.state.get('hideCompleted')){
+			return Tasks.find({checked:{ $ne:true }  } );
+		}
 		return Tasks.find({});
 	},
 });
@@ -51,6 +61,8 @@ Template.body.events ({
 	//Clear form
 	target.text.value='';
  },
-
+	'change .hide-completed input' (event,instance){
+		instance.state.set('hideCompleted',event.target.checked);
+	},
 });
 

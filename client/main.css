@@ -32,7 +32,7 @@ li.private {
 }
  
 header .hide-completed {
-  float: right;
+  float: center;
 }
  
 .toggle-private {
